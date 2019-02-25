@@ -1,34 +1,28 @@
 function Mostrar() {
-	var acumuladorC = 0;
-	var acumulador = 0;
+	var numero;
+	var numeroS = 0;
+	var numeroT = 1;
+	var llave;
+	var flag = 0;
 
-	var acumuladorN = 0
-	var acumuladorCN = 0
+	do {
+		numero = parseInt(prompt("ingrese un numero"));
 
-	var numero
-
-	var respuesta = "s";
-
-	while (respuesta == "s") {
-
-		numero = prompt("Ingrese un numero");
-
-		if (respuesta == "s" && numero >= 0) {
-
-			acumuladorC = acumuladorC + acumulador;
-
+		if (numero > 0) {
+			numeroS = numeroS + numero
 		}
-		else if (respuesta == "s" && numero < -1) {
-
-           acumuladorCN = acumuladorCN * acumuladorN
+		else {
+			numeroT = numeroT * numero
+			flag = 1
 		}
-		respuesta = prompt("Quiere continuar (s/n)");
+		llave = prompt("Quiere contiuar (s/n)").toLowerCase();
+	} while (llave == "s");
+
+	document.getElementById('suma').value = numeroS;
+
+	if (flag == 0) {
+		numeroT = 0
 	}
-
-
-
-
-	document.getElementById('suma').value = acumuladorC;
-	document.getElementById('producto').value = acumuladorCN;
+	document.getElementById('producto').value = numeroT;
 
 }//FIN DE LA FUNCIÓN
